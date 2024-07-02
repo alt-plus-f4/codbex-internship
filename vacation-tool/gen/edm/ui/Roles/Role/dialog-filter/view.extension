@@ -1,0 +1,5 @@
+{
+    "module": "vacation-tool/gen/edm/ui/Roles/Role/dialog-filter/view.js",
+    "extensionPoint": "vacation-tool-dialog-window",
+    "description": "vacation-tool - Application Dialog Window"
+}

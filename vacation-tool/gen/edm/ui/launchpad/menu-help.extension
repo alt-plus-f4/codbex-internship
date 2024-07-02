@@ -1,0 +1,5 @@
+{
+    "module": "vacation-tool/gen/edm/ui/launchpad/menu-help.js",
+    "extensionPoint": "vacation-tool-menu",
+    "description": "vacation-tool - Application Menu"
+}

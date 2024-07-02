@@ -1,0 +1,5 @@
+{
+    "module": "vacation-tool/gen/edm/ui/launchpad/Home/view.js",
+    "extensionPoint": "vacation-tool-view",
+    "description": "vacation-tool - Application View"
+}

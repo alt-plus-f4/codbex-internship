@@ -22,11 +22,6 @@
                         "defaultValue": "25",
                         "nullable": true,
                         "name": "PERSON_DAYSLEFT"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "PERSON_ROLE"
                     }
                 ]
             },
@@ -62,34 +57,6 @@
                         "name": "VACATIONS_NAME"
                     }
                 ]
-            },
-            {
-                "name": "ROLE",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "ROLE_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "ROLE_NAME"
-                    }
-                ]
-            },
-            {
-                "name": "Person_Role",
-                "type": "foreignKey",
-                "table": "PERSON",
-                "constraintName": "Person_Role",
-                "columns": "PERSON_ROLE",
-                "referencedTable": "ROLE",
-                "referencedColumns": "ROLE_ID"
             },
             {
                 "name": "Vacations_Person",

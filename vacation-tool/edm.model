@@ -37,22 +37,6 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "dataName": "PERSON_ROLE",
-                        "dataNullable": "true",
-                        "dataType": "INTEGER",
-                        "name": "Role",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "Person_Role",
-                        "relationshipEntityName": "Role",
-                        "relationshipEntityPerspectiveName": "Roles",
-                        "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
                 "caption": "Manage entity Person",
@@ -161,53 +145,6 @@
                 "title": "Vacations",
                 "tooltip": "Vacations",
                 "type": "PRIMARY"
-            },
-            {
-                "properties": [
-                    {
-                        "dataAutoIncrement": "true",
-                        "dataName": "ROLE_ID",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "true",
-                        "dataType": "INTEGER",
-                        "name": "Id",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "dataLength": "20",
-                        "dataName": "ROLE_NAME",
-                        "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "name": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    }
-                ],
-                "caption": "Manage entity Role",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}ROLE\"",
-                "dataName": "ROLE",
-                "dataQuery": "",
-                "generateReport": "false",
-                "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
-                "menuIndex": "100",
-                "menuKey": "role",
-                "menuLabel": "Role",
-                "name": "Role",
-                "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/brightness-plus.svg",
-                "perspectiveLabel": "Roles",
-                "perspectiveName": "Roles",
-                "perspectiveOrder": "3",
-                "perspectiveRole": "",
-                "title": "Role",
-                "tooltip": "Role",
-                "type": "PRIMARY"
             }
         ],
         "perspectives": [
@@ -223,13 +160,6 @@
                 "label": "Vacations",
                 "icon": "/services/web/resources/unicons/bag-slash.svg",
                 "order": "2",
-                "role": {}
-            },
-            {
-                "name": "Roles",
-                "label": "Roles",
-                "icon": "/services/web/resources/unicons/brightness-plus.svg",
-                "order": "3",
                 "role": {}
             }
         ],

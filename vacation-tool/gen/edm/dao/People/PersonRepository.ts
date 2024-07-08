@@ -7,13 +7,11 @@ export interface PersonEntity {
     readonly Id: number;
     Name?: string;
     DaysLeft?: number;
-    Role?: number;
 }
 
 export interface PersonCreateEntity {
     readonly Name?: string;
     readonly DaysLeft?: number;
-    readonly Role?: number;
 }
 
 export interface PersonUpdateEntity extends PersonCreateEntity {
@@ -26,43 +24,36 @@ export interface PersonEntityOptions {
             Id?: number | number[];
             Name?: string | string[];
             DaysLeft?: number | number[];
-            Role?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
             DaysLeft?: number | number[];
-            Role?: number | number[];
         };
         contains?: {
             Id?: number;
             Name?: string;
             DaysLeft?: number;
-            Role?: number;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
             DaysLeft?: number;
-            Role?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
             DaysLeft?: number;
-            Role?: number;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
             DaysLeft?: number;
-            Role?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
             DaysLeft?: number;
-            Role?: number;
         };
     },
     $select?: (keyof PersonEntity)[],
@@ -108,11 +99,6 @@ export class PersonRepository {
             {
                 name: "DaysLeft",
                 column: "PERSON_DAYSLEFT",
-                type: "INTEGER",
-            },
-            {
-                name: "Role",
-                column: "PERSON_ROLE",
                 type: "INTEGER",
             }
         ]

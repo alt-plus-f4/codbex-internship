@@ -14,7 +14,6 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsRole = params.optionsRole;
 		}
 
 		$scope.filter = function () {
@@ -45,9 +44,6 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.DaysLeft !== undefined) {
 				filter.$filter.equals.DaysLeft = entity.DaysLeft;
-			}
-			if (entity.Role !== undefined) {
-				filter.$filter.equals.Role = entity.Role;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

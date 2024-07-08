@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/vacation-tool/gen/edm/api/People/PersonService.ts";
 	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
+	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
 
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
@@ -107,14 +107,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Person-details", {
 				action: "select",
 				entity: entity,
-				optionsRole: $scope.optionsRole,
 			});
 		};
 
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("Person-filter", {
 				entity: $scope.filterEntity,
-				optionsRole: $scope.optionsRole,
 			});
 		};
 
@@ -123,7 +121,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Person-details", {
 				action: "create",
 				entity: {},
-				optionsRole: $scope.optionsRole,
 			}, null, false);
 		};
 
@@ -131,7 +128,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Person-details", {
 				action: "update",
 				entity: entity,
-				optionsRole: $scope.optionsRole,
 			}, null, false);
 		};
 
@@ -163,28 +159,5 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		};
-
-		//----------------Dropdowns-----------------//
-		$scope.optionsRole = [];
-
-
-		$http.get("/services/ts/vacation-tool/gen/edm/api/Roles/RoleService.ts").then(function (response) {
-			$scope.optionsRole = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$scope.optionsRoleValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsRole.length; i++) {
-				if ($scope.optionsRole[i].value === optionKey) {
-					return $scope.optionsRole[i].text;
-				}
-			}
-			return null;
-		};
-		//----------------Dropdowns-----------------//
 
 	}]);

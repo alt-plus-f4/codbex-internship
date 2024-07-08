@@ -31,16 +31,6 @@
       "order": "2",
       "icon": "/services/web/resources/unicons/bag-slash.svg",
       "role": ""
-    },
-    "Roles": {
-      "views": [
-        "Role"
-      ],
-      "name": "Roles",
-      "label": "Roles",
-      "order": "3",
-      "icon": "/services/web/resources/unicons/brightness-plus.svg",
-      "role": ""
     }
   },
   "models": [
@@ -112,33 +102,6 @@
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
-        },
-        {
-          "dataName": "PERSON_ROLE",
-          "dataNullable": true,
-          "dataType": "INTEGER",
-          "name": "Role",
-          "widgetDropDownKey": "Id",
-          "widgetDropDownValue": "Name",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "DROPDOWN",
-          "relationshipName": "Person_Role",
-          "relationshipEntityName": "Role",
-          "relationshipEntityPerspectiveName": "Roles",
-          "relationshipEntityPerspectiveLabel": "Entities",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Role",
-          "widgetDropdownUrl": "/services/ts/vacation-tool/gen/edm/api/Roles/RoleService.ts",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
         }
       ],
       "caption": "Manage entity Person",
@@ -166,8 +129,7 @@
       "primaryKeys": [
         "Id"
       ],
-      "primaryKeysString": "Id",
-      "hasDropdowns": true
+      "primaryKeysString": "Id"
     },
     {
       "properties": [
@@ -316,81 +278,6 @@
       "primaryKeysString": "Id",
       "hasDates": true,
       "hasDropdowns": true
-    },
-    {
-      "properties": [
-        {
-          "dataAutoIncrement": true,
-          "dataName": "ROLE_ID",
-          "dataNullable": true,
-          "dataPrimaryKey": true,
-          "dataType": "INTEGER",
-          "name": "Id",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Id",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
-        },
-        {
-          "dataLength": "20",
-          "dataName": "ROLE_NAME",
-          "dataNullable": true,
-          "dataType": "VARCHAR",
-          "name": "Name",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Name",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 20,
-          "inputRule": ""
-        }
-      ],
-      "caption": "Manage entity Role",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"ROLE\"",
-      "dataName": "ROLE",
-      "dataQuery": "",
-      "generateReport": "false",
-      "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
-      "menuIndex": "100",
-      "menuKey": "role",
-      "menuLabel": "Role",
-      "name": "Role",
-      "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/brightness-plus.svg",
-      "perspectiveLabel": "Roles",
-      "perspectiveName": "Roles",
-      "perspectiveOrder": "3",
-      "perspectiveRole": "",
-      "title": "Role",
-      "tooltip": "Role",
-      "type": "PRIMARY",
-      "dataSource": "DefaultDB",
-      "referencedProjections": [],
-      "primaryKeys": [
-        "Id"
-      ],
-      "primaryKeysString": "Id"
     }
   ]
 }

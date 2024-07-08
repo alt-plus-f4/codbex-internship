@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<!--
+  ~ Copyright (c) 2010-2023 SAP and others.
+  ~ All rights reserved. This program and the accompanying materials
+  ~ are made available under the terms of the Eclipse Public License v2.0
+  ~ which accompanies this distribution, and is available at
+  ~ http://www.eclipse.org/legal/epl-v20.html
+  ~ Contributors:
+  ~ SAP - initial API and implementation
+  -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="widgets" ng-controller="WidgetsViewController">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+		<title dg-view-title></title>
+		<script type="text/javascript" src="view.js"></script>
+		<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=ide-view-js"></script>
+		<link type="text/css" rel="stylesheet" href="/services/js/resources-core/services/loader.js?id=ide-view-css" />
+		<theme></theme>
+		<script type="text/javascript" src="controller.js"></script>
+	</head>
+
+	<body fd-scrollbar dg-contextmenu="contextMenuContent">
+		<fd-panel>
+			<fd-panel-header>
+				<h4 fd-panel-title>Vacation Approval</h4>
+			</fd-panel-header>
+			<fd-panel-content>
+				<div *ngFor="let vacation of vacations">
+					<div>{{ vacation.startDate }} - {{ vacation.endDate }}: {{ vacation.reason }}</div>
+					<fd-button (click)="approveVacation(vacation.id)" dg-label="Approve"></fd-button>
+					<fd-button (click)="discardVacation(vacation.id)" dg-label="Discard" dg-type="negative"></fd-button>
+				</div>
+			</fd-panel-content>
+		</fd-panel>
+	</body>
+
+</html>

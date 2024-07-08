@@ -55,6 +55,13 @@ The Vacation Management Application simplifies the process of handling employee 
 - **Issue**: Not working aproving or denying requests.
 - **Issue**: Race conditions with multiple users.
 
+## EDM (Entity data model diagram)
+![Screenshot 2024-07-08 100751](https://github.com/alt-plus-f4/codbex-internship/assets/79216061/13313ed3-ba52-4a76-a46c-d106afac547c)
+
+## Workflow chart
+![flowchart](https://github.com/alt-plus-f4/codbex-internship/assets/79216061/c3e4b560-9c98-4bfc-a122-121ed0a1b914)
+
+
 ## GitHub Repository
 
 The codebase is available on GitHub. Clone the repository using the following link:

@@ -23,16 +23,14 @@
 	</head>
 
 	<body fd-scrollbar dg-contextmenu="contextMenuContent">
-		<fd-panel>
+		<fd-panel expanded='true'>
 			<fd-panel-header>
 				<h4 fd-panel-title>Vacation Approval</h4>
 			</fd-panel-header>
 			<fd-panel-content>
-				<div *ngFor="let vacation of vacations">
-					<div>{{ vacation.startDate }} - {{ vacation.endDate }}: {{ vacation.reason }}</div>
-					<fd-button (click)="approveVacation(vacation.id)" dg-label="Approve"></fd-button>
-					<fd-button (click)="discardVacation(vacation.id)" dg-label="Discard" dg-type="negative"></fd-button>
-				</div>
+				<h1>{{ vacation.startDate }} - {{ vacation.endDate }}: {{ vacation.reason }}</h1>
+				<fd-button ng-click="approveVacation(5)" dg-label="Approve" dg-type="positive"></fd-button>
+				<fd-button ng-click="discardVacation(5)" dg-label="Discard" dg-type="negative"></fd-button>
 			</fd-panel-content>
 		</fd-panel>
 	</body>

@@ -4,14 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-	id: "example-widgets",
-	label: "Widgets Examples",
-	factory: "frame",
-	region: "bottom",
-	link: "index.html",
+	id: "Vacations-Approval",
+	label: "Vacations Approving",
+	link: "/services/web/vacation-approval/index.html",
+	perspectiveName: "Vacations",
 };
+
 if (typeof exports !== 'undefined') {
-	exports.getView = function () {
+	exports.getDialogWindow = function () {
 		return viewData;
 	}
 }

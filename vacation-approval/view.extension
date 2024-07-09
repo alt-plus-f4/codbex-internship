@@ -1,0 +1,4 @@
+{
+    "extensionPoint": "vacation-tool-dialog-window",
+    "module": "view.js"
+}

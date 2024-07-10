@@ -55,6 +55,12 @@
                         "length": 20,
                         "nullable": true,
                         "name": "VACATIONS_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "VACATIONS_APPROVED"
                     }
                 ]
             },

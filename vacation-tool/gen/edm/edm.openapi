@@ -658,6 +658,7 @@ paths:
                       Id: 33
                     contains:
                       Name: "abcd"
+                      Approved: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -680,6 +681,7 @@ paths:
                   $filter:
                     contains:
                       Name: "abcd"
+                      Approved: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -744,6 +746,7 @@ paths:
                       Id: 33
                     contains:
                       Name: "abcd"
+                      Approved: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -766,6 +769,7 @@ paths:
                   $filter:
                     contains:
                       Name: "abcd"
+                      Approved: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -991,6 +995,10 @@ components:
           type: string
           minLength: 0
           maxLength: 20
+        Approved:
+          type: string
+          minLength: 0
+          maxLength: 20
     VacationsFilterOptions:
       type: object
       properties:
@@ -1021,6 +1029,17 @@ components:
                         type: integer
                         format: int32
                 Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+                Approved:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -1065,6 +1084,17 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Approved:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
             contains:
               type: object
               properties:
@@ -1073,6 +1103,10 @@ components:
                 DateEnd:
                 Person:
                 Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Approved:
                   type: string
                   minLength: 0
                   maxLength: 20
@@ -1091,6 +1125,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Approved:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
             greaterThanOrEqual:
               type: object
               properties:
@@ -1103,6 +1141,10 @@ components:
                   type: integer
                   format: int32
                 Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Approved:
                   type: string
                   minLength: 0
                   maxLength: 20
@@ -1121,6 +1163,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Approved:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
             lessThanOrEqual:
               type: object
               properties:
@@ -1136,14 +1182,18 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Approved:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
         $select:
           type: array
-          example: ["Id", "DateStart", "DateEnd", "Person", "Name"]
+          example: ["Id", "DateStart", "DateEnd", "Person", "Name", "Approved"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,DateStart,DateEnd,Person,Name"
+            example: "Id,DateStart,DateEnd,Person,Name,Approved"
         $order:
           type: string
           enum: ["asc", "desc"]

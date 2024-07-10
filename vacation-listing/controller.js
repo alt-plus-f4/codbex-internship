@@ -310,4 +310,48 @@ widgetsView.controller('WidgetsViewController', ['$scope', 'messageHub', functio
             console.log($scope.combobox.selectedModelValues);
         }
     };
+
+    $scope.fetchData = function () {
+        fetch('/services/ts/vacation-tool/gen/edm/api/People/PersonService.ts', {
+            method: 'GET',
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        }).then(peopleData => {
+            $scope.people = {};
+            peopleData.forEach(person => {
+                $scope.people[person.Id] = person.Name;
+            });
+
+            return fetch('/services/ts/vacation-tool/gen/edm/api/Vacations/VacationsService.ts', {
+                method: 'GET',
+            });
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        }).then(vacationsData => {
+            console.log(vacationsData);
+            console.log(JSON.stringify(vacationsData));
+
+            $scope.vacations = vacationsData.filter(vacation => vacation.Approved === "True");
+
+            $scope.vacations.forEach(vacation => {
+                vacation.DateStart = new Date(vacation.DateStart);
+                vacation.DateEnd = new Date(vacation.DateEnd);
+            });
+
+            $scope.$apply();
+        }).catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+        console.log("Called fetchData");
+    }
+
+    $scope.fetchData();
+
 }]);

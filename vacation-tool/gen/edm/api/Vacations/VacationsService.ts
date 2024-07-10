@@ -128,6 +128,9 @@ class VacationsService {
         if (entity.Name?.length > 20) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
         }
+        if (entity.Approved?.length > 20) {
+            throw new ValidationError(`The 'Approved' exceeds the maximum length of [20] characters`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

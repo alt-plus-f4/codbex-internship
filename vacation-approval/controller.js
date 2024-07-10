@@ -307,37 +307,96 @@ widgetsView.controller('WidgetsViewController', ['$scope', 'messageHub', functio
         }
     };
 
-    $scope.vacation = {
-        id: 1,
-        startDate: 2,
-        endDate: 3,
-        reason: "Hello"
-    }
-
-    $scope.approveVacation = function (id) {
+    $scope.approveVacation = function (vacation) {
         const options = {
-            "DateStart": 1720396800000,
-            "DateEnd": 1720569600000,
-            "Person": 1,
-            "Name": "!Work4"
-        }
+            "Id": vacation.Id,
+            "DateStart": vacation.DateStart.getTime(),
+            "DateEnd": vacation.DateEnd.getTime(),
+            "Person": vacation.Person,
+            "Name": vacation.Name,
+            "Approved": "True"
+        };
 
-        fetch('/services/ts/vacation-tool/gen/edm/api/Vacations/VacationsService.ts', {
-            method: 'POST',
+        fetch(`/services/ts/vacation-tool/gen/edm/api/Vacations/VacationsService.ts/${vacation.Id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(options),
         }).then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
+            return response.json();
+        }).then(data => {
+            console.log("Vacation approved:", data);
+            $scope.fetchData();
+        }).catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 
-            return JSON.stringify(response);
-        })
-
-        console.log("Called func" + id);
-
+        console.log("Called approveVacation for ID: " + vacation.Id);
     }
-    $scope.discardVacation = function (id) {
-        console.log("Called func 2");
-        return id == 1;
+
+    $scope.discardVacation = function (vacation) {
+        fetch(`/services/ts/vacation-tool/gen/edm/api/Vacations/VacationsService.ts/${vacation.Id}`, {
+            method: 'DELETE'
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        }).then(data => {
+            console.log("Vacation discarded:", data);
+            $scope.fetchData();
+        }).catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+        console.log("Called discardVacation for ID: " + vacation.Id);
     }
+
+    $scope.fetchData = function () {
+        fetch('/services/ts/vacation-tool/gen/edm/api/People/PersonService.ts', {
+            method: 'GET',
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        }).then(peopleData => {
+            $scope.people = {};
+            peopleData.forEach(person => {
+                $scope.people[person.Id] = person.Name;
+            });
+
+            return fetch('/services/ts/vacation-tool/gen/edm/api/Vacations/VacationsService.ts', {
+                method: 'GET',
+            });
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        }).then(vacationsData => {
+            console.log(vacationsData);
+            console.log(JSON.stringify(vacationsData));
+
+            $scope.vacations = vacationsData.filter(vacation => vacation.Approved !== "True");
+
+            $scope.vacations.forEach(vacation => {
+                vacation.DateStart = new Date(vacation.DateStart);
+                vacation.DateEnd = new Date(vacation.DateEnd);
+            });
+
+            $scope.$apply();
+        }).catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+        console.log("Called fetchData");
+    }
+
+    $scope.fetchData();
+
 }]);

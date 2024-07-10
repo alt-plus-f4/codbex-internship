@@ -25,14 +25,25 @@
 	<body fd-scrollbar dg-contextmenu="contextMenuContent">
 		<fd-panel expanded='true'>
 			<fd-panel-header>
-				<h4 fd-panel-title>Vacation Approval</h4>
+				<h4 fd-panel-title>Approve Vacations</h4>
 			</fd-panel-header>
-			<fd-panel-content>
-				<h1>{{ vacation.startDate }} - {{ vacation.endDate }}: {{ vacation.reason }}</h1>
-				<fd-button ng-click="approveVacation(5)" dg-label="Approve" dg-type="positive"></fd-button>
-				<fd-button ng-click="discardVacation(5)" dg-label="Discard" dg-type="negative"></fd-button>
+			<fd-panel-content style="display: flex; flex-direction: row; margin: 20px;">
+				<div ng-repeat="vacation in vacations"
+					style="display: flex; flex-direction:column; align-items: center; justify-content: space-between; border: 1px solid white; padding: 10px; width: 15rem; margin-left: 20px;">
+					<h1>{{people[vacation.Person]}}</h1>
+					<p>Reason: {{vacation.Name}}</p>
+					<p>Start Date: <input type="date" ng-model="vacation.DateStart" /></p>
+					<p>End Date: <input type="date" ng-model="vacation.DateEnd" /></p>
+					<div>
+						<fd-button ng-click="approveVacation(vacation)" dg-label="Approve" dg-type="positive">Approve
+						</fd-button>
+						<fd-button ng-click="discardVacation(vacation)" dg-label="Discard" dg-type="negative">Discard
+						</fd-button>
+					</div>
+				</div>
 			</fd-panel-content>
 		</fd-panel>
 	</body>
+
 
 </html>

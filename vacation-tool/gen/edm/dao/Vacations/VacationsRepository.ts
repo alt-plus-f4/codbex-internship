@@ -10,6 +10,7 @@ export interface VacationsEntity {
     DateEnd?: Date;
     Person?: number;
     Name?: string;
+    Approved?: string;
 }
 
 export interface VacationsCreateEntity {
@@ -17,6 +18,7 @@ export interface VacationsCreateEntity {
     readonly DateEnd?: Date;
     readonly Person?: number;
     readonly Name?: string;
+    readonly Approved?: string;
 }
 
 export interface VacationsUpdateEntity extends VacationsCreateEntity {
@@ -31,6 +33,7 @@ export interface VacationsEntityOptions {
             DateEnd?: Date | Date[];
             Person?: number | number[];
             Name?: string | string[];
+            Approved?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -38,6 +41,7 @@ export interface VacationsEntityOptions {
             DateEnd?: Date | Date[];
             Person?: number | number[];
             Name?: string | string[];
+            Approved?: string | string[];
         };
         contains?: {
             Id?: number;
@@ -45,6 +49,7 @@ export interface VacationsEntityOptions {
             DateEnd?: Date;
             Person?: number;
             Name?: string;
+            Approved?: string;
         };
         greaterThan?: {
             Id?: number;
@@ -52,6 +57,7 @@ export interface VacationsEntityOptions {
             DateEnd?: Date;
             Person?: number;
             Name?: string;
+            Approved?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -59,6 +65,7 @@ export interface VacationsEntityOptions {
             DateEnd?: Date;
             Person?: number;
             Name?: string;
+            Approved?: string;
         };
         lessThan?: {
             Id?: number;
@@ -66,6 +73,7 @@ export interface VacationsEntityOptions {
             DateEnd?: Date;
             Person?: number;
             Name?: string;
+            Approved?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -73,6 +81,7 @@ export interface VacationsEntityOptions {
             DateEnd?: Date;
             Person?: number;
             Name?: string;
+            Approved?: string;
         };
     },
     $select?: (keyof VacationsEntity)[],
@@ -128,6 +137,11 @@ export class VacationsRepository {
             {
                 name: "Name",
                 column: "VACATIONS_NAME",
+                type: "VARCHAR",
+            },
+            {
+                name: "Approved",
+                column: "VACATIONS_APPROVED",
                 type: "VARCHAR",
             }
         ]

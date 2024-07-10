@@ -123,6 +123,17 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "20",
+                        "dataName": "VACATIONS_APPROVED",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "name": "Approved",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity Vacations",

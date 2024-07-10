@@ -23,16 +23,22 @@
 	</head>
 
 	<body fd-scrollbar dg-contextmenu="contextMenuContent">
-		<fd-panel>
+		<fd-panel expanded='true'>
 			<fd-panel-header>
 				<h4 fd-panel-title>Approved Vacations</h4>
 			</fd-panel-header>
-			<fd-panel-content>
-				<div *ngFor="let vacation of approvedVacations">
-					<div>{{ vacation.startDate }} - {{ vacation.endDate }}: {{ vacation.reason }}</div>
+			<fd-panel-content style="display: flex; flex-direction: row; margin: 20px;">
+				<div ng-repeat="vacation in vacations"
+					style="display: flex; flex-direction:column; align-items: center; justify-content: space-between; border: 1px solid white; padding: 10px; width: 15rem; margin-left: 20px;">
+					<h1>{{vacation.Name}}</h1>
+					<p>Person: {{people[vacation.Person]}}</p>
+					<p>Start Date: <input type="date" ng-model="vacation.DateStart" /></p>
+					<p>End Date: <input type="date" ng-model="vacation.DateEnd" /></p>
+					<!-- <p>Approved: {{vacation.Approved}}</p> -->
 				</div>
 			</fd-panel-content>
 		</fd-panel>
 	</body>
+
 
 </html>

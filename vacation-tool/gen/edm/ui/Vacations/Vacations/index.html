@@ -32,6 +32,7 @@
 						<th fd-table-header-cell>DateEnd</th>
 						<th fd-table-header-cell>Person</th>
 						<th fd-table-header-cell>Name</th>
+						<th fd-table-header-cell>Approved</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -51,6 +52,7 @@
 							{{optionsPersonValue(next.Person)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Approved}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>
 								<fd-popover-control>

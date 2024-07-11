@@ -25,22 +25,34 @@
 	<body fd-scrollbar dg-contextmenu="contextMenuContent">
 		<fd-panel expanded='true'>
 			<fd-panel-header>
-				<h4 fd-panel-title>Approve Vacations</h4>
+				<h4 fd-panel-title>Request Vacation</h4>
 			</fd-panel-header>
-			<fd-panel-content style="display: flex; flex-direction: row; margin: 20px;">
-				<div ng-repeat="vacation in vacations"
-					style="display: flex; flex-direction:column; align-items: center; justify-content: space-between; border: 1px solid white; border-radius: 8px; padding: 10px; width: 15rem; margin-left: 20px;">
-					<h1>{{people[vacation.Person]}}</h1>
-					<p>Reason: {{vacation.Name}}</p>
-					<p>Start Date: <input type="date" ng-model="vacation.DateStart" /></p>
-					<p>End Date: <input type="date" ng-model="vacation.DateEnd" /></p>
-					<div>
-						<fd-button ng-click="approveVacation(vacation)" dg-label="Approve" dg-type="positive">Approve
+			<fd-panel-content>
+				<form ng-submit="requestVacation(newVacation)"
+					style="display: flex; flex-direction: column; width: 200px; padding: 10px; border: 1px solid white; border-radius: 8px; align-items: center; height: 200px; justify-content: space-between;">
+					<label style="text-align: center;">
+						Reason:
+						<input type="text" ng-model="newVacation.Name" required />
+					</label>
+					<label>
+						Person:
+						<select ng-model="newVacation.Person" required>
+							<option ng-repeat="(id, name) in people" value="{{id}}">{{name}}</option>
+						</select>
+					</label>
+					<label>
+						Start Date:
+						<input type="date" ng-model="newVacation.DateStart" required />
+					</label>
+					<label>
+						End Date:
+						<input type="date" ng-model="newVacation.DateEnd" required />
+					</label>
+					<button type="submit" style="border: none;">
+						<fd-button dg-label="Request Vacation" dg-type="positive">Request Vacation
 						</fd-button>
-						<fd-button ng-click="discardVacation(vacation)" dg-label="Discard" dg-type="negative">Discard
-						</fd-button>
-					</div>
-				</div>
+					</button>
+				</form>
 			</fd-panel-content>
 		</fd-panel>
 	</body>

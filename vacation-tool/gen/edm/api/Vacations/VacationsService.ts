@@ -125,8 +125,17 @@ class VacationsService {
         if (entity.DateEnd === null || entity.DateEnd === undefined) {
             throw new ValidationError(`The 'DateEnd' property is required, provide a valid value`);
         }
+        if (entity.Person === null || entity.Person === undefined) {
+            throw new ValidationError(`The 'Person' property is required, provide a valid value`);
+        }
+        if (entity.Name === null || entity.Name === undefined) {
+            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
+        }
         if (entity.Name?.length > 20) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Approved === null || entity.Approved === undefined) {
+            throw new ValidationError(`The 'Approved' property is required, provide a valid value`);
         }
         if (entity.Approved?.length > 20) {
             throw new ValidationError(`The 'Approved' exceeds the maximum length of [20] characters`);

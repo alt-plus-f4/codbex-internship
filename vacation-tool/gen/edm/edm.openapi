@@ -982,6 +982,9 @@ components:
       required:
         - DateStart
         - DateEnd
+        - Person
+        - Name
+        - Approved
       properties:
         Id:
           type: integer
